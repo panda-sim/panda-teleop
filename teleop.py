@@ -41,7 +41,7 @@ class KeyboardController:
             if k in keys and (keys[k] & p.KEY_IS_DOWN):
                 action += v
 
-        action[:3] *= self.pos_step
+        action[0:3] *= self.pos_step
         action[3:6] *= self.rot_step
         return action
 
@@ -77,7 +77,7 @@ class JoystickController():
             self.position_control = False
 
         # press A to close gripper, B to open, joysticks to move
-        # NOTE: You may want to change the signs/order for z1, z2, and z3
+        # NOTE: You may want to change the signs/order for z1, z2, and z3...
         # based on your perspective when teleoperating the robot
         self.A_pressed = self.gamepad.get_button(0)
         self.B_pressed = self.gamepad.get_button(1)
